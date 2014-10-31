@@ -21,12 +21,12 @@ public class Game implements ActionListener {
         this.window = window;
         this.user = user;
         this.renderer = renderer;
-        timer = new Timer(5, this);
-        timer.start();
+        timer = new Timer(20, this);
     }
 
     public void run() throws InterruptedException {
         window.activate();
+        timer.start();
 
         while(!user.hasQuit()){
             Thread.sleep(1);
@@ -45,7 +45,7 @@ public class Game implements ActionListener {
     public Entity spawnEntity(EntityType type, Vector2f position) {
         Sprite sprite = fromFile(type.image(), position);
         renderer.addSprite(sprite);
-        Entity entity = new Entity(position, sprite);
+        Entity entity = new Entity(position, sprite, this);
         world.spawn(entity);
         return entity;
     }

@@ -19,6 +19,9 @@ public class PlayerMoveKeyListener implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent event) {
+        if (event.getKeyChar() == ' ') {
+            player.fire();
+        }
     }
 
     @Override
@@ -39,6 +42,7 @@ public class PlayerMoveKeyListener implements KeyListener {
             player.velocity(down);
         }
 
+
     }
 
     @Override
@@ -48,6 +52,14 @@ public class PlayerMoveKeyListener implements KeyListener {
         }
 
         if (event.getKeyChar() == 'd') {
+            player.velocity(Zero);
+        }
+
+        if (event.getKeyChar() == 'w') {
+            player.velocity(Zero);
+        }
+
+        if (event.getKeyChar() == 's') {
             player.velocity(Zero);
         }
 
